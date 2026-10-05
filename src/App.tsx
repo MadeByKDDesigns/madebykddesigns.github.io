@@ -128,6 +128,95 @@ function AboutPage() {
   );
 }
 
+type AppCardData = {
+  name: string;
+  description: string;
+  votes: number;
+  preview: 'recipes' | 'focus' | 'draw' | 'habits';
+};
+
+const appCards: AppCardData[] = [
+  { description: 'recipes that fit in your pocket', name: 'Pocket Recipes', preview: 'recipes', votes: 342 },
+  { description: 'a gentle pomodoro timer', name: 'FocusFlow', preview: 'focus', votes: 128 },
+  { description: 'draw-and-guess with friends', name: 'DrawDuel', preview: 'draw', votes: 89 },
+  { description: 'dead-simple habit tracking', name: 'Tally Habits', preview: 'habits', votes: 601 },
+];
+
+function AppPreview({ type }: { type: AppCardData['preview'] }) {
+  return (
+    <div className={`app-preview app-preview-${type}`} aria-hidden="true">
+      {type === 'recipes' && (
+        <>
+          <div className="preview-status">9:41</div>
+          <div className="preview-title">Pocket Recipes <span>⌕</span></div>
+          <div className="preview-tabs"><b>All</b><span>Breakfast</span><span>Lunch</span></div>
+          <div className="recipe-dish"><i /><i /><i /></div>
+          <div className="preview-lines"><b>Lemon Garlic Pasta</b><span>20 min · 4 ingredients</span></div>
+        </>
+      )}
+      {type === 'focus' && (
+        <>
+          <div className="preview-status">9:41</div>
+          <div className="preview-title">FocusFlow</div>
+          <div className="focus-ring"><strong>25:00</strong><span>Focus time</span></div>
+          <div className="focus-button">▶ Start</div>
+          <div className="focus-tabs"><span>Pomodoro</span><span>Short Break</span></div>
+        </>
+      )}
+      {type === 'draw' && (
+        <>
+          <div className="preview-status">9:41</div>
+          <div className="preview-title">DrawDuel <span>♧</span></div>
+          <div className="draw-canvas"><b>⌣</b><i /><span /></div>
+          <div className="draw-colors"><i /><i /><i /><i /><i /><i /></div>
+        </>
+      )}
+      {type === 'habits' && (
+        <>
+          <div className="preview-status">9:41</div>
+          <div className="preview-title">Tally Habits <span>＋</span></div>
+          <div className="habit-row"><span>Work out</span><i>✓</i><i>✓</i><i>✓</i></div>
+          <div className="habit-row"><span>Read</span><i>✓</i><i>✓</i><i>✓</i></div>
+          <div className="habit-row"><span>Drink water</span><i>✓</i><i>✓</i><i>✓</i></div>
+          <div className="habit-row"><span>Be kind</span><i>✓</i><i>✓</i><i>✓</i></div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function AppCard({ app }: { app: AppCardData }) {
+  return (
+    <article className="app-card">
+      <AppPreview type={app.preview} />
+      <div className="app-card-body">
+        <h2>{app.name}</h2>
+        <p>{app.description}</p>
+        <button className="store-button" type="button"><span aria-hidden="true">▶</span> Get it on Google Play</button>
+        <button className="vote-button" type="button">Vote for iOS · <strong>{app.votes}</strong></button>
+      </div>
+    </article>
+  );
+}
+
+function AppsPage() {
+  return (
+    <section className="apps-page">
+      <div className="apps-heading">
+        <h1>My Apps</h1>
+        <p>Everything I&apos;ve shipped so far — and what to vote for next on iOS</p>
+      </div>
+      <div className="apps-grid">
+        {appCards.map((app) => <AppCard app={app} key={app.name} />)}
+      </div>
+      <div className="apps-support">
+        <h2>Enjoying my apps?</h2>
+        <p>Support me by downloading my apps, providing feedback via the surveys linked above, or Support me on Venmo @Made-by-KD-Designs</p>
+      </div>
+    </section>
+  );
+}
+
 function SimplePage({ title, description }: { title: string; description: string }) {
   return (
     <section className="simple-page">
@@ -144,15 +233,7 @@ function App() {
         <SiteHeader />
         <Routes>
           <Route element={<AboutPage />} path="/" />
-          <Route
-            element={
-              <SimplePage
-                description="Small, useful apps made with care."
-                title="Apps"
-              />
-            }
-            path="/apps"
-          />
+          <Route element={<AppsPage />} path="/apps" />
           <Route
             element={
               <SimplePage
