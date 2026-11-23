@@ -206,7 +206,8 @@ h1 span { color: #14151d; font-weight: inherit; }
 .survey-link:hover { color: #14151d; }
 .apps-support { background: linear-gradient(105deg, #f5f5f5, #f1f1f1); border-radius: 7px; margin-top: 22px; padding: 20px 24px 22px; text-align: center; }
 .apps-support h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(18px, 2vw, 24px); letter-spacing: -0.05em; margin: 0; }
-.support-button { background: #14151d; border-radius: 999px; box-shadow: 0 6px 14px rgba(20, 21, 29, 0.14); color: #fff; cursor: pointer; font-size: 11px; font-weight: 700; margin-top: 10px; padding: 10px 17px; transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+.support-button { align-items: center; background: #14151d; border-radius: 999px; box-shadow: 0 6px 14px rgba(20, 21, 29, 0.14); color: #fff; cursor: pointer; display: inline-flex; flex-direction: column; font-size: 14px; font-weight: 700; gap: 2px; line-height: 1.15; margin-top: 10px; padding: 10px 22px 11px; transition: background 180ms ease, box-shadow 180ms ease, transform 180ms ease; }
+.support-button small { font-size: 9px; font-weight: 500; opacity: 0.72; }
 .support-button:hover { background: #2b2d36; box-shadow: 0 9px 18px rgba(20, 21, 29, 0.2); transform: translateY(-1px); }
 .support-button:active { transform: translateY(0); }
 .apps-support p { color: #646570; font-size: 12px; line-height: 1.5; margin: 8px auto 0; max-width: 760px; }

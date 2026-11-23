@@ -212,7 +212,10 @@ function AppsPage() {
       </div>
       <div className="apps-support">
         <h2>Enjoying my apps?</h2>
-        <button className="support-button" type="button">Support me on Venmo @Made-by-KD-Designs</button>
+        <button className="support-button" type="button">
+          <span>Support me on Venmo</span>
+          <small>@Made-by-KD-Designs</small>
+        </button>
         <p>or provide feedback via the surveys linked above</p>
       </div>
     </section>
