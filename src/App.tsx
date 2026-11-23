@@ -205,7 +205,6 @@ function AppsPage() {
     <section className="apps-page">
       <div className="apps-heading">
         <h1>My Apps</h1>
-        <p>Everything I&apos;ve shipped so far — and what to vote for next on iOS</p>
       </div>
       <div className="apps-grid">
         {appCards.map((app) => <AppCard app={app} key={app.name} />)}
