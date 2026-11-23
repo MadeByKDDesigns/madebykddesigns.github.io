@@ -131,15 +131,15 @@ function AboutPage() {
 type AppCardData = {
   name: string;
   description: string;
-  votes: number;
   preview: 'recipes' | 'focus' | 'draw' | 'habits';
+  surveyUrl?: string;
 };
 
 const appCards: AppCardData[] = [
-  { description: 'recipes that fit in your pocket', name: 'Pocket Recipes', preview: 'recipes', votes: 342 },
-  { description: 'a gentle pomodoro timer', name: 'FocusFlow', preview: 'focus', votes: 128 },
-  { description: 'draw-and-guess with friends', name: 'DrawDuel', preview: 'draw', votes: 89 },
-  { description: 'dead-simple habit tracking', name: 'Tally Habits', preview: 'habits', votes: 601 },
+  { description: 'recipes that fit in your pocket', name: 'Pocket Recipes', preview: 'recipes' },
+  { description: 'a gentle pomodoro timer', name: 'FocusFlow', preview: 'focus' },
+  { description: 'draw-and-guess with friends', name: 'DrawDuel', preview: 'draw' },
+  { description: 'dead-simple habit tracking', name: 'Tally Habits', preview: 'habits' },
 ];
 
 function AppPreview({ type }: { type: AppCardData['preview'] }) {
@@ -193,7 +193,8 @@ function AppCard({ app }: { app: AppCardData }) {
         <h2>{app.name}</h2>
         <p>{app.description}</p>
         <button className="store-button" type="button"><span aria-hidden="true">▶</span> Get it on Google Play</button>
-        <button className="vote-button" type="button">Vote for iOS · <strong>{app.votes}</strong></button>
+        <button className="vote-button" type="button">Vote for iOS</button>
+        {app.surveyUrl && <a className="survey-link" href={app.surveyUrl} rel="noreferrer" target="_blank">Feedback survey</a>}
       </div>
     </article>
   );
@@ -211,7 +212,8 @@ function AppsPage() {
       </div>
       <div className="apps-support">
         <h2>Enjoying my apps?</h2>
-        <p>Support me by downloading my apps, providing feedback via the surveys linked above, or Support me on Venmo @Made-by-KD-Designs</p>
+        <button className="support-button" type="button">Support me on Venmo @Made-by-KD-Designs</button>
+        <p>or provide feedback via the surveys linked above</p>
       </div>
     </section>
   );
