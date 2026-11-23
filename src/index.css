@@ -150,7 +150,7 @@ h1 span { color: #14151d; font-weight: inherit; }
 .simple-page h1 { font-size: clamp(44px, 6vw, 72px); margin: 0; }
 .simple-page p { color: #646570; font-size: 18px; line-height: 1.5; margin: 18px 0 0; }
 .apps-page { font-family: 'DM Sans', sans-serif; margin: 0 auto; max-width: 1220px; min-height: calc(100vh - 52px); padding: clamp(38px, 5.2vw, 64px) clamp(20px, 3.5vw, 42px) 42px; }
-.apps-heading { text-align: center; }
+.apps-heading { margin-bottom: clamp(24px, 3vw, 34px); text-align: center; }
 .apps-heading h1 { font-size: clamp(36px, 4vw, 50px); letter-spacing: -0.075em; }
 .apps-grid { display: grid; gap: 14px; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .app-card { background: #fff; border: 1px solid #dfdfdf; border-radius: 8px; box-shadow: 0 6px 16px rgba(20, 21, 29, 0.055); overflow: hidden; transition: box-shadow 180ms ease, transform 180ms ease; }
