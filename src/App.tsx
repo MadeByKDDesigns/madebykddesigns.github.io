@@ -101,9 +101,9 @@ function AboutPage() {
         <img src={`${import.meta.env.BASE_URL}Profile_Pic.jpg`} alt="Katie smiling in front of the Chicago skyline" />
       </div>
       <h1>Hi, I’m Katie <span>:)</span></h1>
-      <p className="role">Jelly-bean-powered indie app developer</p>
+      <p className="role">Jelly-bean-powered indie app creator</p>
       <p className="intro">
-        I build small, useful apps from my spare bedroom, solo with love (and too many jelly beans)
+        I vibecode small, useful apps from my spare bedroom, solo with love (and too many jelly beans)
       </p>
 
       <div className="details-card">
