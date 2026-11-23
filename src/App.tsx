@@ -216,7 +216,10 @@ function AppsPage() {
           <span>Support me on Venmo</span>
           <small>@Made-by-KD-Designs</small>
         </button>
-        <p>or provide feedback via the surveys linked above</p>
+        <p>
+          <span>or provide feedback via the</span>
+          <span>surveys linked above</span>
+        </p>
       </div>
     </section>
   );
