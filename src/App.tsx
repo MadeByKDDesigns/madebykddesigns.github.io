@@ -103,7 +103,7 @@ function AboutPage() {
       <h1>Hi, I’m Katie <span>:)</span></h1>
       <p className="role">Jelly-bean-powered indie app creator</p>
       <p className="intro">
-        I vibecode small, useful apps from my spare bedroom, solo with love (and too many jelly beans)
+        I vibecode small, useful apps from my living room, solo with love (and too many jelly beans)
       </p>
 
       <div className="details-card">
