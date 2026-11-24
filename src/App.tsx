@@ -145,17 +145,17 @@ const appCards: AppCardData[] = [
     surveyUrl: '/contact',
   },
   {
-    alt: 'Moodly app preview showing an emotion calendar',
-    description: 'check in with yourself and see how you feel',
-    image: 'images/3._Moodly.png',
-    name: 'Moodly',
-    surveyUrl: '/contact',
-  },
-  {
     alt: 'Weather Wardrobe app preview showing outfit recommendations',
     description: 'dress for the weather, wherever you are',
     image: 'images/1._Weather_Wardrobe.png',
     name: 'Weather Wardrobe',
+    surveyUrl: '/contact',
+  },
+  {
+    alt: 'Moodly app preview showing an emotion calendar',
+    description: 'check in with yourself and see how you feel',
+    image: 'images/3._Moodly.png',
+    name: 'Moodly',
     surveyUrl: '/contact',
   },
 ];
