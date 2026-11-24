@@ -198,10 +198,15 @@ function AppsPage() {
       </div>
       <div className="apps-support">
         <h2>Enjoying my apps?</h2>
-        <button className="support-button" type="button">
+        <a
+          className="support-button"
+          href="https://venmo.com/code?user_id=2615719522992128747&created=1795552014"
+          rel="noreferrer"
+          target="_blank"
+        >
           <span>Support me on Venmo</span>
           <small>@Made-by-KD-Designs</small>
-        </button>
+        </a>
         <p>
           <span>or provide feedback via the</span>
           <span>surveys linked above</span>
