@@ -162,9 +162,10 @@ h1 span { color: #14151d; font-weight: inherit; }
 .app-card-body p { color: #646570; font-size: 12px; font-weight: 500; line-height: 1.4; margin: 4px 0 13px; }
 .store-button, .vote-button { align-items: center; background: #fff; border: 1px solid #8b8b8d; border-radius: 10px; color: #202126; cursor: pointer; display: flex; font-size: 11px; justify-content: center; min-height: 25px; padding: 5px 7px; transition: background 180ms ease, border-color 180ms ease; width: 100%; }
 .store-button:hover, .vote-button:hover { background: #f4f4f1; border-color: #202126; }
+.store-button { text-decoration: none; }
 .store-button span { font-size: 9px; margin-right: 6px; }
 .vote-button { margin-top: 7px; }
-.survey-link { align-items: center; color: #646570; display: flex; font-size: 9px; font-weight: 600; justify-content: center; margin-top: 8px; text-decoration: underline; text-underline-offset: 2px; transition: color 180ms ease; }
+.survey-link { align-items: center; color: #646570; display: flex; font-size: 11px; font-weight: 600; justify-content: center; margin-top: 8px; text-decoration: underline; text-underline-offset: 2px; transition: color 180ms ease; }
 .survey-link:hover { color: #14151d; }
 .apps-support { background: linear-gradient(105deg, #f5f5f5, #f1f1f1); border-radius: 7px; margin-top: 22px; padding: 20px 24px 22px; text-align: center; }
 .apps-support h2 { font-family: 'DM Sans', sans-serif; font-size: clamp(18px, 2vw, 24px); letter-spacing: -0.05em; margin: 0; }

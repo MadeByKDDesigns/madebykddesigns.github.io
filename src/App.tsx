@@ -133,30 +133,34 @@ type AppCardData = {
   description: string;
   image: string;
   alt: string;
-  surveyUrl?: string;
+  googlePlayUrl: string;
+  surveyUrl: string;
 };
 
 const appCards: AppCardData[] = [
   {
     alt: 'Restaurant Week app preview showing Chicago restaurant rankings',
     description: 'discover the best Chicago Restaurant Week deals',
+    googlePlayUrl: 'https://google.com',
     image: 'images/2._Restaurant_Week.png',
     name: 'Restaurant Week',
-    surveyUrl: '/contact',
+    surveyUrl: 'https://google.com',
   },
   {
     alt: 'Weather Wardrobe app preview showing outfit recommendations',
     description: 'dress for the weather, wherever you are',
+    googlePlayUrl: 'https://play.google.com/store/apps/details?id=app.rork.weather_wardrobe_fddka32&listing=website',
     image: 'images/1._Weather_Wardrobe.png',
     name: 'Weather Wardrobe',
-    surveyUrl: '/contact',
+    surveyUrl: 'https://docs.google.com/forms/d/e/1FAIpQLSd-0_P0_WLw0EnNRxnaF4GPNkn3M9vtHKq7ET64EjLT5aCf-w/viewform?usp=header',
   },
   {
     alt: 'Moodly app preview showing an emotion calendar',
     description: 'check in with yourself and see how you feel',
+    googlePlayUrl: 'https://google.com',
     image: 'images/3._Moodly.png',
     name: 'Moodly',
-    surveyUrl: '/contact',
+    surveyUrl: 'https://google.com',
   },
 ];
 
@@ -175,9 +179,9 @@ function AppCard({ app }: { app: AppCardData }) {
       <div className="app-card-body">
         <h2>{app.name}</h2>
         <p>{app.description}</p>
-        <button className="store-button" type="button"><span aria-hidden="true">▶</span> Get it on Google Play</button>
+        <a className="store-button" href={app.googlePlayUrl} rel="noreferrer" target="_blank"><span aria-hidden="true">▶</span> Get it on Google Play</a>
         <button className="vote-button" type="button">Vote for iOS</button>
-        {app.surveyUrl && <Link className="survey-link" to={app.surveyUrl}>Feedback survey</Link>}
+        <a className="survey-link" href={app.surveyUrl} rel="noreferrer" target="_blank">Feedback survey</a>
       </div>
     </article>
   );
