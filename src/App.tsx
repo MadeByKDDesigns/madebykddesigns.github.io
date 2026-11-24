@@ -142,18 +142,21 @@ const appCards: AppCardData[] = [
     description: 'discover the best Chicago Restaurant Week deals',
     image: 'images/2._Restaurant_Week.png',
     name: 'Restaurant Week',
+    surveyUrl: '/contact',
   },
   {
     alt: 'Moodly app preview showing an emotion calendar',
     description: 'check in with yourself and see how you feel',
     image: 'images/3._Moodly.png',
     name: 'Moodly',
+    surveyUrl: '/contact',
   },
   {
     alt: 'Weather Wardrobe app preview showing outfit recommendations',
     description: 'dress for the weather, wherever you are',
     image: 'images/1._Weather_Wardrobe.png',
     name: 'Weather Wardrobe',
+    surveyUrl: '/contact',
   },
 ];
 
@@ -174,7 +177,7 @@ function AppCard({ app }: { app: AppCardData }) {
         <p>{app.description}</p>
         <button className="store-button" type="button"><span aria-hidden="true">▶</span> Get it on Google Play</button>
         <button className="vote-button" type="button">Vote for iOS</button>
-        {app.surveyUrl && <a className="survey-link" href={app.surveyUrl} rel="noreferrer" target="_blank">Feedback survey</a>}
+        {app.surveyUrl && <Link className="survey-link" to={app.surveyUrl}>Feedback survey</Link>}
       </div>
     </article>
   );

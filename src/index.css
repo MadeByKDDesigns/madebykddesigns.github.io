@@ -158,9 +158,9 @@ h1 span { color: #14151d; font-weight: inherit; }
 .app-preview { aspect-ratio: 1; background: #f4f5f7; overflow: hidden; position: relative; }
 .app-preview img { display: block; height: 100%; object-fit: cover; width: 100%; }
 .app-card-body { padding: 11px 10px 10px; }
-.app-card-body h2 { font-family: 'DM Sans', sans-serif; font-size: 15px; letter-spacing: -0.04em; margin: 0; }
-.app-card-body p { color: #646570; font-size: 10px; margin: 3px 0 11px; }
-.store-button, .vote-button { align-items: center; background: #fff; border: 1px solid #8b8b8d; border-radius: 4px; color: #202126; cursor: pointer; display: flex; font-size: 9px; justify-content: center; min-height: 25px; padding: 5px 7px; transition: background 180ms ease, border-color 180ms ease; width: 100%; }
+.app-card-body h2 { font-family: 'DM Sans', sans-serif; font-size: 17px; font-weight: 700; letter-spacing: -0.04em; margin: 0; }
+.app-card-body p { color: #646570; font-size: 12px; font-weight: 500; line-height: 1.4; margin: 4px 0 13px; }
+.store-button, .vote-button { align-items: center; background: #fff; border: 1px solid #8b8b8d; border-radius: 10px; color: #202126; cursor: pointer; display: flex; font-size: 9px; justify-content: center; min-height: 25px; padding: 5px 7px; transition: background 180ms ease, border-color 180ms ease; width: 100%; }
 .store-button:hover, .vote-button:hover { background: #f4f4f1; border-color: #202126; }
 .store-button span { font-size: 8px; margin-right: 6px; }
 .vote-button { margin-top: 7px; }
@@ -203,7 +203,7 @@ h1 span { color: #14151d; font-weight: inherit; }
   .hero { padding-top: 38px; }
   .apps-page { padding: 38px 20px 32px; }
   .apps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .app-card-body h2 { font-size: 14px; }
+  .app-card-body h2 { font-size: 16px; }
   .apps-support { margin-top: 18px; padding: 20px 16px; }
   .apps-support p { font-size: 11px; }
   .contact-content { display: block; min-height: 0; padding: 0 24px 64px; }
