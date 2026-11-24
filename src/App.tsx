@@ -131,56 +131,36 @@ function AboutPage() {
 type AppCardData = {
   name: string;
   description: string;
-  preview: 'recipes' | 'focus' | 'draw' | 'habits';
+  image: string;
+  alt: string;
   surveyUrl?: string;
 };
 
 const appCards: AppCardData[] = [
-  { description: 'recipes that fit in your pocket', name: 'Pocket Recipes', preview: 'recipes' },
-  { description: 'a gentle pomodoro timer', name: 'FocusFlow', preview: 'focus' },
-  { description: 'draw-and-guess with friends', name: 'DrawDuel', preview: 'draw' },
-  { description: 'dead-simple habit tracking', name: 'Tally Habits', preview: 'habits' },
+  {
+    alt: 'Restaurant Week app preview showing Chicago restaurant rankings',
+    description: 'discover the best Chicago Restaurant Week deals',
+    image: 'images/2._Restaurant_Week.png',
+    name: 'Restaurant Week',
+  },
+  {
+    alt: 'Moodly app preview showing an emotion calendar',
+    description: 'check in with yourself and see how you feel',
+    image: 'images/3._Moodly.png',
+    name: 'Moodly',
+  },
+  {
+    alt: 'Weather Wardrobe app preview showing outfit recommendations',
+    description: 'dress for the weather, wherever you are',
+    image: 'images/1._Weather_Wardrobe.png',
+    name: 'Weather Wardrobe',
+  },
 ];
 
-function AppPreview({ type }: { type: AppCardData['preview'] }) {
+function AppPreview({ app }: { app: AppCardData }) {
   return (
-    <div className={`app-preview app-preview-${type}`} aria-hidden="true">
-      {type === 'recipes' && (
-        <>
-          <div className="preview-status">9:41</div>
-          <div className="preview-title">Pocket Recipes <span>⌕</span></div>
-          <div className="preview-tabs"><b>All</b><span>Breakfast</span><span>Lunch</span></div>
-          <div className="recipe-dish"><i /><i /><i /></div>
-          <div className="preview-lines"><b>Lemon Garlic Pasta</b><span>20 min · 4 ingredients</span></div>
-        </>
-      )}
-      {type === 'focus' && (
-        <>
-          <div className="preview-status">9:41</div>
-          <div className="preview-title">FocusFlow</div>
-          <div className="focus-ring"><strong>25:00</strong><span>Focus time</span></div>
-          <div className="focus-button">▶ Start</div>
-          <div className="focus-tabs"><span>Pomodoro</span><span>Short Break</span></div>
-        </>
-      )}
-      {type === 'draw' && (
-        <>
-          <div className="preview-status">9:41</div>
-          <div className="preview-title">DrawDuel <span>♧</span></div>
-          <div className="draw-canvas"><b>⌣</b><i /><span /></div>
-          <div className="draw-colors"><i /><i /><i /><i /><i /><i /></div>
-        </>
-      )}
-      {type === 'habits' && (
-        <>
-          <div className="preview-status">9:41</div>
-          <div className="preview-title">Tally Habits <span>＋</span></div>
-          <div className="habit-row"><span>Work out</span><i>✓</i><i>✓</i><i>✓</i></div>
-          <div className="habit-row"><span>Read</span><i>✓</i><i>✓</i><i>✓</i></div>
-          <div className="habit-row"><span>Drink water</span><i>✓</i><i>✓</i><i>✓</i></div>
-          <div className="habit-row"><span>Be kind</span><i>✓</i><i>✓</i><i>✓</i></div>
-        </>
-      )}
+    <div className="app-preview">
+      <img alt={app.alt} src={`${import.meta.env.BASE_URL}${app.image}`} />
     </div>
   );
 }
@@ -188,7 +168,7 @@ function AppPreview({ type }: { type: AppCardData['preview'] }) {
 function AppCard({ app }: { app: AppCardData }) {
   return (
     <article className="app-card">
-      <AppPreview type={app.preview} />
+      <AppPreview app={app} />
       <div className="app-card-body">
         <h2>{app.name}</h2>
         <p>{app.description}</p>
