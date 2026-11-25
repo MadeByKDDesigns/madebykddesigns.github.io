@@ -2,6 +2,7 @@ import { useState, type FormEvent } from 'react';
 import { HashRouter, Link, NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import { Mail, MapPin } from 'lucide-react';
 import VoteModal from '@/components/VoteModal';
+import { supabase } from '@/lib/supabaseClient';
 
 const navigationItems = [
   { label: 'About', path: '/' },
@@ -33,11 +34,37 @@ function SiteHeader() {
 }
 
 function ContactPage() {
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formState, setFormState] = useState<
+    | { status: 'idle' }
+    | { status: 'submitting' }
+    | { status: 'error'; message: string }
+    | { status: 'success' }
+  >({ status: 'idle' });
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>): void {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>): Promise<void> {
     event.preventDefault();
-    setIsSubmitted(true);
+    setFormState({ status: 'submitting' });
+
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
+    try {
+      const { error } = await supabase.from('contact_messages').insert({
+        name: String(data.get('name') ?? ''),
+        email: String(data.get('email') ?? ''),
+        organization: String(data.get('organization') ?? '') || null,
+        mission: String(data.get('mission') ?? ''),
+      });
+
+      if (error) throw error;
+      form.reset();
+      setFormState({ status: 'success' });
+    } catch {
+      setFormState({
+        status: 'error',
+        message: 'Something went wrong sending your message. Please try again, or email me directly.',
+      });
+    }
   }
 
   return (
@@ -58,11 +85,11 @@ function ContactPage() {
         </div>
 
         <div className="contact-card">
-          {isSubmitted ? (
+          {formState.status === 'success' ? (
             <div className="contact-success" role="status">
               <h2>Message sent.</h2>
               <p>Thanks for reaching out. I’ll be in touch soon.</p>
-              <button className="contact-reset" onClick={() => setIsSubmitted(false)} type="button">
+              <button className="contact-reset" onClick={() => setFormState({ status: 'idle' })} type="button">
                 Send another message
               </button>
             </div>
@@ -80,8 +107,12 @@ function ContactPage() {
               <label htmlFor="mission">Tell me about your mission</label>
               <textarea id="mission" name="mission" required rows={4} />
 
-              <button className="contact-submit" type="submit">
-                Send message
+              {formState.status === 'error' && (
+                <p className="contact-form-error">{formState.message}</p>
+              )}
+
+              <button className="contact-submit" disabled={formState.status === 'submitting'} type="submit">
+                {formState.status === 'submitting' ? 'Sending…' : 'Send message'}
               </button>
 
               <p className="contact-email">
