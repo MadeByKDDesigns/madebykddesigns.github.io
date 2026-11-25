@@ -1,6 +1,7 @@
 import { useState, type FormEvent } from 'react';
 import { HashRouter, Link, NavLink, Navigate, Route, Routes } from 'react-router-dom';
 import { Mail, MapPin } from 'lucide-react';
+import VoteModal from '@/components/VoteModal';
 
 const navigationItems = [
   { label: 'About', path: '/' },
@@ -173,6 +174,8 @@ function AppPreview({ app }: { app: AppCardData }) {
 }
 
 function AppCard({ app }: { app: AppCardData }) {
+  const [voteOpen, setVoteOpen] = useState(false);
+
   return (
     <article className="app-card">
       <AppPreview app={app} />
@@ -180,9 +183,10 @@ function AppCard({ app }: { app: AppCardData }) {
         <h2>{app.name}</h2>
         <p>{app.description}</p>
         <a className="store-button" href={app.googlePlayUrl} rel="noreferrer" target="_blank"><span aria-hidden="true">▶</span> Get it on Google Play</a>
-        <button className="vote-button" type="button">Vote for iOS</button>
+        <button className="vote-button" onClick={() => setVoteOpen(true)} type="button">Vote for iOS</button>
         <a className="survey-link" href={app.surveyUrl} rel="noreferrer" target="_blank">Feedback survey</a>
       </div>
+      <VoteModal appName={app.name} open={voteOpen} onClose={() => setVoteOpen(false)} />
     </article>
   );
 }
