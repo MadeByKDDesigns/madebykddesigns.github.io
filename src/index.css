@@ -84,9 +84,8 @@ button { border: 0; }
 }
 
 .portrait-frame {
-  border: 7px solid #fff;
+  border: 7px solid #fffdfb;
   border-radius: 50%;
-  box-shadow: 0 15px 35px rgba(35, 29, 34, 0.14);
   height: clamp(130px, 13vw, 158px);
   margin-bottom: 21px;
   overflow: hidden;
@@ -100,9 +99,9 @@ h1 span { color: #14151d; font-weight: inherit; }
 
 .details-card {
   align-items: stretch;
-  background: linear-gradient(100deg, rgba(247, 7, 70, 0.045), rgba(150, 78, 247, 0.06), rgba(247, 183, 7, 0.08));
-  border: 1px solid rgba(150, 78, 247, 0.08);
-  border-radius: 14px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   max-width: 670px;

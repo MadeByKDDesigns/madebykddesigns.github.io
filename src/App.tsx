@@ -143,10 +143,10 @@ function AboutPage() {
           <MapPin className="detail-icon location-icon" size={23} strokeWidth={1.8} />
           <strong>Chicago</strong>
         </div>
-        <div className="detail-item stacked-detail">
+        <Link className="detail-item stacked-detail" to="/apps">
           <div className="stat-number">3</div>
           <strong>Apps shipped</strong>
-        </div>
+        </Link>
         <Link className="detail-item email-detail" to="/contact">
           <Mail className="detail-icon email-icon" size={23} strokeWidth={1.8} />
           <strong>Say hi →</strong>
