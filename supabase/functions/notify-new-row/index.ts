@@ -1,14 +1,8 @@
-import { createClient } from "npm:@supabase/supabase-js@2";
-
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type, Authorization, X-Client-Info, Apikey",
 };
-
-const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
-const NOTIFY_EMAIL = Deno.env.get("NOTIFY_EMAIL");
-const FROM_EMAIL = Deno.env.get("FROM_EMAIL") ?? "notifications@resend.dev";
 
 Deno.serve(async (req: Request) => {
   if (req.method === "OPTIONS") {
@@ -17,7 +11,7 @@ Deno.serve(async (req: Request) => {
 
   try {
     const body = await req.json();
-    const { table, record, type } = body ?? {};
+    const { table, record, type, resend_api_key, notify_email } = body ?? {};
 
     if (type !== "INSERT" || !record) {
       return new Response(
@@ -26,9 +20,9 @@ Deno.serve(async (req: Request) => {
       );
     }
 
-    if (!RESEND_API_KEY || !NOTIFY_EMAIL) {
+    if (!resend_api_key || !notify_email) {
       return new Response(
-        JSON.stringify({ error: "Missing RESEND_API_KEY or NOTIFY_EMAIL secrets" }),
+        JSON.stringify({ error: "Missing resend_api_key or notify_email in request body" }),
         { status: 500, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
@@ -43,12 +37,12 @@ Deno.serve(async (req: Request) => {
     const resendResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
+        Authorization: `Bearer ${resend_api_key}`,
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: FROM_EMAIL,
-        to: [NOTIFY_EMAIL],
+        from: "onboarding@resend.dev",
+        to: [notify_email],
         subject,
         text,
       }),
