@@ -1,0 +1,2 @@
+[functions.notify-new-row]
+verify_jwt = false
